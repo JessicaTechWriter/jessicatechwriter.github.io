@@ -1,0 +1,9 @@
+extends: existence
+message: "Troque '%s' por um texto que diga para onde o link leva."
+level: error
+ignorecase: true
+tokens:
+  - clique aqui
+  - acesse aqui
+  - veja aqui
+  - saiba mais aqui

@@ -1,0 +1,6 @@
+extends: existence
+message: "Gerundismo em '%s'. Use o verbo direto, como 'vou enviar'."
+level: error
+ignorecase: true
+tokens:
+  - '(?:vou|vamos|vai|vão|irei|iremos|irá|irão) estar \w+ndo'

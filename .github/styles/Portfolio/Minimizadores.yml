@@ -1,0 +1,11 @@
+extends: existence
+message: "Evite '%s': o que é fácil para quem escreve pode não ser para quem lê."
+level: warning
+ignorecase: true
+tokens:
+  - simplesmente
+  - obviamente
+  - claramente
+  - facilmente
+  - é só
+  - basta

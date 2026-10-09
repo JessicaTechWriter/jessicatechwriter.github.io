@@ -1,0 +1,9 @@
+extends: existence
+message: "Em instruções, fale direto com quem lê: troque '%s' por uma frase com 'você'."
+level: suggestion
+ignorecase: true
+tokens:
+  - o usuário deve
+  - o usuário pode
+  - o usuário precisa
+  - é necessário que o usuário
