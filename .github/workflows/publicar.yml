@@ -1,0 +1,48 @@
+# Gera o site e publica no GitHub Pages a cada push na branch main.
+# Requisito: em Settings > Pages, defina Source como "GitHub Actions".
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    name: Gerar o site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Instalar dependências
+        run: npm install
+      - name: Gerar o site
+        run: npm run build
+      - name: Enviar os arquivos gerados
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: build
+
+  publicar:
+    name: Publicar
+    needs: gerar
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: publicacao
+        uses: actions/deploy-pages@v5

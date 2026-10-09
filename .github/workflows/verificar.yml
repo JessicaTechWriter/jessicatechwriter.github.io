@@ -1,0 +1,36 @@
+# Roda em cada pull request: revisa o estilo com o Vale e confirma que o site
+# é gerado sem links quebrados.
+name: Verificar documentação
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  estilo:
+    name: Revisão de estilo (Vale)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: vale-cli/vale-action@v3
+        with:
+          files: '["docs", "src/pages"]'
+          fail_on_error: true
+
+  links:
+    name: Geração do site e links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Gerar o site (falha se houver link quebrado)
+        run: npm run build
