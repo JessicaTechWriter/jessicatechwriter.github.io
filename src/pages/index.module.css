@@ -1,0 +1,114 @@
+.pagina {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.abertura {
+  padding: 5rem 0 3.5rem;
+  max-width: 44rem;
+}
+
+.titulo {
+  font-size: clamp(2.25rem, 1.4rem + 3.6vw, 3.815rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.resumo {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 38rem;
+  margin-bottom: 0;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.secao {
+  padding-top: 3rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--pf-linha);
+}
+
+.subtitulo {
+  font-size: 1.563rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Lista de amostras no formato de sumário, com linha-guia pontilhada. */
+.sumario {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 48rem;
+}
+
+.entrada {
+  padding: 0.25rem 0 1.25rem;
+}
+
+.linhaEntrada {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.linhaEntrada:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.tituloEntrada {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--pf-tinta);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.linhaEntrada:hover .tituloEntrada {
+  text-decoration-thickness: 2px;
+}
+
+.guia {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted var(--pf-linha);
+  transform: translateY(-0.3em);
+}
+
+.tipo {
+  color: var(--pf-texto-suave);
+  white-space: nowrap;
+}
+
+.descricao {
+  margin: 0.25rem 0 0;
+  color: var(--pf-texto-suave);
+  max-width: 36rem;
+}
+
+@media (max-width: 640px) {
+  .abertura {
+    padding-top: 3rem;
+  }
+
+  .linhaEntrada {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .guia {
+    display: none;
+  }
+}
