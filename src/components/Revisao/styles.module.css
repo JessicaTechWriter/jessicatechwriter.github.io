@@ -1,0 +1,89 @@
+.revisao {
+  margin: 1.5rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.texto p {
+  margin: 0 0 0.75rem;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.rotulo {
+  font-size: 0.875rem;
+  color: var(--pf-texto-suave);
+}
+
+.antes del {
+  color: var(--pf-texto-suave);
+  text-decoration-color: var(--pf-caneta);
+  text-decoration-thickness: 2px;
+}
+
+.depois ins {
+  text-decoration: none;
+  color: var(--pf-sobre-marca-texto);
+  background-image: linear-gradient(var(--pf-marca-texto), var(--pf-marca-texto));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0.05em 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.nota {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-left: 0.875rem;
+  border-left: 2px solid var(--pf-caneta);
+  font-style: italic;
+  color: var(--pf-texto-suave);
+}
+
+.contagem {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+}
+
+/* Versão da página inicial: texto maior e nota na margem, como num manuscrito revisado. */
+.destaque .texto p {
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 997px) {
+  .destaque {
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+/* O único movimento do site: o marca-texto passa sobre a versão revisada. */
+@media (prefers-reduced-motion: no-preference) {
+  .destaque .depois ins {
+    animation: marcar 900ms cubic-bezier(0.4, 0, 0.2, 1) 400ms both;
+  }
+}
+
+@keyframes marcar {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .texto p {
+    grid-template-columns: 1fr;
+    gap: 0.125rem;
+  }
+}
