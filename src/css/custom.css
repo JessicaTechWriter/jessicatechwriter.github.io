@@ -1,0 +1,164 @@
+/*
+ * Identidade visual do portfólio
+ * Papel, grafite, marca-texto e caneta de revisão: as ferramentas de quem edita texto.
+ * Para mudar as cores, altere só as variáveis --pf-* abaixo.
+ */
+
+:root {
+  --pf-papel: #f5f6f3;
+  --pf-superficie: #ebede8;
+  --pf-grafite: #2b2e33;
+  --pf-texto-suave: #5b6068;
+  --pf-tinta: #1f4fa8;
+  --pf-tinta-escura: #183f87;
+  --pf-caneta: #c0262d;
+  --pf-marca-texto: #ffe14d;
+  --pf-sobre-marca-texto: #2b2e33;
+  --pf-linha: #d6d9d2;
+
+  --ifm-color-primary: var(--pf-tinta);
+  --ifm-color-primary-dark: #1c4797;
+  --ifm-color-primary-darker: #1a438f;
+  --ifm-color-primary-darkest: var(--pf-tinta-escura);
+  --ifm-color-primary-light: #2257b9;
+  --ifm-color-primary-lighter: #245bc1;
+  --ifm-color-primary-lightest: #2a66d4;
+
+  --ifm-background-color: var(--pf-papel);
+  --ifm-background-surface-color: var(--pf-papel);
+  --ifm-font-color-base: var(--pf-grafite);
+  --ifm-heading-color: var(--pf-grafite);
+  --ifm-toc-border-color: var(--pf-linha);
+  --ifm-hr-border-color: var(--pf-linha);
+  --ifm-color-emphasis-300: var(--pf-linha);
+
+  --ifm-font-family-base: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-size-base: 112.5%;
+  --ifm-line-height-base: 1.6;
+  --ifm-heading-font-weight: 700;
+  --ifm-heading-line-height: 1.2;
+  --ifm-code-font-size: 90%;
+  --ifm-link-decoration: underline;
+  --ifm-navbar-shadow: none;
+  --ifm-button-border-radius: 6px;
+  --ifm-footer-background-color: var(--pf-papel);
+
+  --docusaurus-highlighted-code-line-bg: rgba(255, 225, 77, 0.35);
+}
+
+[data-theme='dark'] {
+  --pf-papel: #17191c;
+  --pf-superficie: #22252a;
+  --pf-grafite: #e4e6e2;
+  --pf-texto-suave: #a6abb2;
+  --pf-tinta: #8fb0f0;
+  --pf-tinta-escura: #6e95e6;
+  --pf-caneta: #f07a7f;
+  --pf-marca-texto: #f5d84a;
+  --pf-sobre-marca-texto: #1b1c1e;
+  --pf-linha: #343840;
+
+  --ifm-color-primary: var(--pf-tinta);
+  --ifm-color-primary-dark: #7ea3ed;
+  --ifm-color-primary-darker: #769dec;
+  --ifm-color-primary-darkest: var(--pf-tinta-escura);
+  --ifm-color-primary-light: #a0bdf3;
+  --ifm-color-primary-lighter: #a8c3f4;
+  --ifm-color-primary-lightest: #c1d4f7;
+
+  --docusaurus-highlighted-code-line-bg: rgba(245, 216, 74, 0.18);
+}
+
+/* Links sublinhados: legíveis sem depender só da cor. */
+a {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.navbar__link,
+.menu__link,
+.table-of-contents__link,
+.pagination-nav__link,
+.footer__link-item,
+.button,
+.navbar__brand {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--pf-tinta);
+  outline-offset: 2px;
+}
+
+.navbar {
+  background: var(--pf-papel);
+  border-bottom: 1px solid var(--pf-linha);
+}
+
+.navbar__title {
+  font-weight: 700;
+}
+
+/* Medida de leitura confortável nas páginas de documentação. */
+.theme-doc-markdown {
+  max-width: 70ch;
+}
+
+.markdown h1:first-child {
+  font-size: 2.441rem;
+  letter-spacing: -0.01em;
+}
+
+.markdown h2 {
+  font-size: 1.563rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h3 {
+  font-size: 1.25rem;
+}
+
+/* Marca-texto também na seleção de texto. */
+::selection {
+  background: var(--pf-marca-texto);
+  color: var(--pf-sobre-marca-texto);
+}
+
+.footer {
+  border-top: 1px solid var(--pf-linha);
+}
+
+/* Botão secundário com contorno em grafite, visível nos dois temas. */
+.button--outline.button--secondary {
+  --ifm-button-border-color: var(--pf-grafite);
+  --ifm-button-color: var(--pf-grafite);
+  background: transparent;
+}
+
+.button--outline.button--secondary:hover {
+  --ifm-button-background-color: var(--pf-superficie);
+  background: var(--pf-superficie);
+  color: var(--pf-grafite);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer__copyright {
+  color: var(--pf-texto-suave);
+  font-size: 0.875rem;
+}
+
+.footer__link-separator {
+  display: none;
+}
